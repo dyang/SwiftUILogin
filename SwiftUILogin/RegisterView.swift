@@ -11,27 +11,72 @@ import Combine
 
 class AppState: ObservableObject {
 	@Published var username: String = ""
-	@Published var password: String = ""
-	@Published var repeatPassword: String = ""
+	@Published var passcode: String = ""
+	@Published var repeatPasscode: String = ""
+	
+	var isUsernameValid: Bool {
+		return username.count > 0
+	}
+	
+	var isPasscodeValid: Bool {
+		return passcode.count == 6
+	}
+	
+	var isRepeatPasscodeValid: Bool {
+		return isPasscodeValid && repeatPasscode == passcode
+	}
+	
+	var allValid: Bool {
+		return isUsernameValid && isPasscodeValid && isRepeatPasscodeValid
+	}
 }
 
 struct RegisterView: View {
 	@ObservedObject var state: AppState
 	
-    var body: some View {
+	var body: some View {
 		VStack {
 			Text("Register new user")
 				.font(.largeTitle)
 				.padding()
+			
 			Text("Username")
-			TextField("", text: $state.username)
-				.textFieldStyle(RoundedBorderTextFieldStyle())
-			Text("Password")
-			TextField("", text: $state.password)
-				.textFieldStyle(RoundedBorderTextFieldStyle())
-			Text("Repeat password")
-			TextField("", text: $state.repeatPassword)
-				.textFieldStyle(RoundedBorderTextFieldStyle())
+			HStack {
+				TextField("", text: $state.username)
+					.textFieldStyle(RoundedBorderTextFieldStyle())
+				if state.isUsernameValid {
+					Image(systemName: "checkmark.circle.fill")
+						.foregroundColor(.green)
+				}
+			}
+			
+			Text("Passcode")
+			HStack {
+				TextField("", text: $state.passcode)
+					.keyboardType(.numberPad)
+					.textFieldStyle(RoundedBorderTextFieldStyle())
+				if state.isPasscodeValid {
+					Image(systemName: "checkmark.circle.fill")
+						.foregroundColor(.green)
+				}
+			}
+			
+			Text("Repeat Passcode")
+			HStack {
+				TextField("", text: $state.repeatPasscode)
+					.keyboardType(.numberPad)
+					.textFieldStyle(RoundedBorderTextFieldStyle())
+				if state.isRepeatPasscodeValid {
+					Image(systemName: "checkmark.circle.fill")
+						.foregroundColor(.green)
+				}
+			}
+			
+			Button(action: {}) {
+				Text("Register")
+			}
+			.disabled(!state.allValid)
+			
 			Spacer()
 		}
 		.frame(minWidth: 200, maxWidth: 300)
