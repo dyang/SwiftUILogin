@@ -40,9 +40,8 @@ struct RegisterView: View {
 				.font(.largeTitle)
 				.padding()
 			
-			Text("Username")
 			HStack {
-				TextField("", text: $state.username)
+				TextField("Username", text: $state.username)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
 				if state.isUsernameValid {
 					Image(systemName: "checkmark.circle.fill")
@@ -50,9 +49,8 @@ struct RegisterView: View {
 				}
 			}
 			
-			Text("Passcode")
 			HStack {
-				TextField("", text: $state.passcode)
+				TextField("Passcode", text: $state.passcode)
 					.keyboardType(.numberPad)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
 				if state.isPasscodeValid {
@@ -61,9 +59,8 @@ struct RegisterView: View {
 				}
 			}
 			
-			Text("Repeat Passcode")
 			HStack {
-				TextField("", text: $state.repeatPasscode)
+				TextField("Repeat Passcode", text: $state.repeatPasscode)
 					.keyboardType(.numberPad)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
 				if state.isRepeatPasscodeValid {
