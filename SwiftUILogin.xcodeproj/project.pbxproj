@@ -14,6 +14,7 @@
 		E624FF4123B4D44B00EA4942 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E624FF4023B4D44B00EA4942 /* Preview Assets.xcassets */; };
 		E624FF4423B4D44B00EA4942 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E624FF4223B4D44B00EA4942 /* LaunchScreen.storyboard */; };
 		E624FF4F23B4D44B00EA4942 /* RegistrationValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E624FF4E23B4D44B00EA4942 /* RegistrationValidationTests.swift */; };
+		E628513823C2795B00C4A2BA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E628513723C2795B00C4A2BA /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		E624FF4A23B4D44B00EA4942 /* SwiftUILoginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUILoginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E624FF4E23B4D44B00EA4942 /* RegistrationValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationValidationTests.swift; sourceTree = "<group>"; };
 		E624FF5023B4D44B00EA4942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E628513723C2795B00C4A2BA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				E624FF3723B4D44A00EA4942 /* AppDelegate.swift */,
 				E624FF3923B4D44A00EA4942 /* SceneDelegate.swift */,
+				E628513723C2795B00C4A2BA /* LoginView.swift */,
 				E624FF3B23B4D44A00EA4942 /* RegisterView.swift */,
 				E624FF3D23B4D44B00EA4942 /* Assets.xcassets */,
 				E624FF4223B4D44B00EA4942 /* LaunchScreen.storyboard */,
@@ -210,6 +213,7 @@
 			files = (
 				E624FF3823B4D44A00EA4942 /* AppDelegate.swift in Sources */,
 				E624FF3A23B4D44A00EA4942 /* SceneDelegate.swift in Sources */,
+				E628513823C2795B00C4A2BA /* LoginView.swift in Sources */,
 				E624FF3C23B4D44A00EA4942 /* RegisterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
