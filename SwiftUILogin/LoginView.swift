@@ -84,17 +84,13 @@ struct LoginSelectionView: View {
 	var body: some View {
 		VStack {
 			Button(action: {
-				withAnimation {
-					self.currentViewMode = .showLoginWithUsername
-				}
+				withAnimation { self.currentViewMode = .showLoginWithUsername }
 			}) {
 				Text("Login with username")
 			}.padding()
 
 			Button(action: {
-				withAnimation {
-					self.currentViewMode = .showLoginWithLoginApp
-				}
+				withAnimation { self.currentViewMode = .showLoginWithLoginApp }
 			}) {
 				Text("Login with Login App")
 			}.padding()
@@ -147,9 +143,7 @@ struct BackButton: View {
 	
 	var body: some View {
 		Button(action: {
-			withAnimation {
-				self.currentViewMode = .showLoginSelection
-			}
+			withAnimation { self.currentViewMode = .showLoginSelection }
 			
 		}) {
 			Image(systemName: "gobackward")
