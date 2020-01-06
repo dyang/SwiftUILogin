@@ -8,29 +8,17 @@
 
 import SwiftUI
 
-enum LoginViewMode {
-	case showLoginSelection
-	case showLoginWithUsername
-	case showLoginWithLoginApp
-}
-
-class LoginViewState: ObservableObject {
-	@Published var currentViewMode: LoginViewMode = .showLoginSelection
-}
-
 struct LoginView: View {
-	@ObservedObject var loginViewState: LoginViewState
+	@ObservedObject var loginViewModel: LoginViewModel
 		
-	var rightToLeft: AnyTransition {
-		let insertion = AnyTransition.move(edge: .trailing)
-		let removal = AnyTransition.move(edge: .trailing)
-		return .asymmetric(insertion: insertion, removal: removal)
+	private var rightToLeft: AnyTransition {
+		.asymmetric(insertion: AnyTransition.move(edge: .trailing),
+					removal: AnyTransition.move(edge: .trailing))
 	}
 	
-	var leftToRight: AnyTransition {
-		let insertion = AnyTransition.move(edge: .leading)
-		let removal = AnyTransition.move(edge: .leading)
-		return .asymmetric(insertion: insertion, removal: removal)
+	private var leftToRight: AnyTransition {
+		.asymmetric(insertion: AnyTransition.move(edge: .leading),
+					removal: AnyTransition.move(edge: .leading))
 	}
 	
 	var body: some View {
@@ -42,16 +30,16 @@ struct LoginView: View {
 			Spacer()
 			
 			// SwiftUI doesn't seem to have a good complex conditional support??? (e.g. switch)
-			if loginViewState.currentViewMode == .showLoginSelection {
-				LoginSelectionView(currentViewMode: $loginViewState.currentViewMode)
+			if loginViewModel.currentViewMode == .showLoginSelection {
+				LoginSelectionView(currentViewMode: $loginViewModel.currentViewMode)
 					.transition(leftToRight)
 			}
-			if loginViewState.currentViewMode == .showLoginWithUsername {
-				UsernameLoginView(currentViewMode: $loginViewState.currentViewMode)
+			if loginViewModel.currentViewMode == .showLoginWithUsername {
+				UsernameLoginView(currentViewMode: $loginViewModel.currentViewMode)
 					.transition(rightToLeft)
 			}
-			if loginViewState.currentViewMode == .showLoginWithLoginApp {
-				LoginAppLoginView(currentViewMode: $loginViewState.currentViewMode)
+			if loginViewModel.currentViewMode == .showLoginWithLoginApp {
+				LoginAppLoginView(currentViewMode: $loginViewModel.currentViewMode)
 					.transition(rightToLeft)
 			}
 		
@@ -177,6 +165,6 @@ struct TabView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-		LoginView(loginViewState: LoginViewState())
+		LoginView(loginViewModel: LoginViewModel())
     }
 }

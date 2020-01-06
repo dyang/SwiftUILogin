@@ -10,7 +10,7 @@ import XCTest
 @testable import SwiftUILogin
 
 class RegistrationValidationTests: XCTestCase {
-	let state = AppState()
+	let state = UserViewModel()
 	
 	func testAllEmpty() {
 		XCTAssertFalse(state.allValid)
