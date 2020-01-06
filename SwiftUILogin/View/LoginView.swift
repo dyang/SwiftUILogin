@@ -35,7 +35,7 @@ struct LoginView: View {
 					.transition(leftToRight)
 			}
 			if loginViewModel.currentViewMode == .showLoginWithUsername {
-				UsernameLoginView(currentViewMode: $loginViewModel.currentViewMode)
+				UsernameLoginView(currentViewMode: $loginViewModel.currentViewMode, userViewModel: UsernameLoginViewModel())
 					.transition(rightToLeft)
 			}
 			if loginViewModel.currentViewMode == .showLoginWithLoginApp {
@@ -88,20 +88,25 @@ struct LoginSelectionView: View {
 
 struct UsernameLoginView: View {
 	@Binding var currentViewMode: LoginViewMode
-	@State var username: String = ""
-	@State var passcode: String = ""
+	@ObservedObject var userViewModel: UsernameLoginViewModel
 	
 	var body: some View {
 		VStack {
 			Text("Username")
-			TextField("", text: $username)
+			TextField("", text: $userViewModel.username)
 				.padding()
 				.textFieldStyle(RoundedBorderTextFieldStyle())
 			
 			Text("Passcode")
-			TextField("", text: $passcode)
-				.padding()
+			TextField("", text: $userViewModel.passcode)
+				.keyboardType(.numberPad)
 				.textFieldStyle(RoundedBorderTextFieldStyle())
+				.padding()
+			Button(action: {}) {
+				Text("Log in")
+			}
+				.enabled(userViewModel.allValid)
+				.padding()
 			
 			BackButton(currentViewMode: $currentViewMode)
 		}
@@ -167,4 +172,10 @@ struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
 		LoginView(loginViewModel: LoginViewModel())
     }
+}
+
+extension View {
+	func enabled(_ enabled: Bool) -> some View {
+		disabled(!enabled)
+	}
 }

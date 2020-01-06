@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 struct RegisterView: View {
-	@ObservedObject var state: UserViewModel
+	@ObservedObject var state: RegisterViewModel
 	
 	var body: some View {
 		VStack {
@@ -60,6 +60,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-		RegisterView(state: UserViewModel())
+		RegisterView(state: RegisterViewModel())
     }
 }

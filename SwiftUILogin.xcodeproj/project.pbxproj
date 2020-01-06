@@ -15,8 +15,8 @@
 		E624FF4423B4D44B00EA4942 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E624FF4223B4D44B00EA4942 /* LaunchScreen.storyboard */; };
 		E624FF4F23B4D44B00EA4942 /* RegistrationValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E624FF4E23B4D44B00EA4942 /* RegistrationValidationTests.swift */; };
 		E628513823C2795B00C4A2BA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E628513723C2795B00C4A2BA /* LoginView.swift */; };
-		E647302523C37761006F998A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647302423C37761006F998A /* UserViewModel.swift */; };
 		E647302823C37958006F998A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647302723C37958006F998A /* LoginViewModel.swift */; };
+		E647302A23C37C23006F998A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647302923C37C23006F998A /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +42,8 @@
 		E624FF4E23B4D44B00EA4942 /* RegistrationValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationValidationTests.swift; sourceTree = "<group>"; };
 		E624FF5023B4D44B00EA4942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E628513723C2795B00C4A2BA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		E647302423C37761006F998A /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		E647302723C37958006F998A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E647302923C37C23006F998A /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +117,7 @@
 		E647302323C3772F006F998A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E647302423C37761006F998A /* UserViewModel.swift */,
+				E647302923C37C23006F998A /* UserViewModel.swift */,
 				E647302723C37958006F998A /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
@@ -234,10 +234,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E624FF3823B4D44A00EA4942 /* AppDelegate.swift in Sources */,
+				E647302A23C37C23006F998A /* UserViewModel.swift in Sources */,
 				E624FF3A23B4D44A00EA4942 /* SceneDelegate.swift in Sources */,
 				E647302823C37958006F998A /* LoginViewModel.swift in Sources */,
 				E628513823C2795B00C4A2BA /* LoginView.swift in Sources */,
-				E647302523C37761006F998A /* UserViewModel.swift in Sources */,
 				E624FF3C23B4D44A00EA4942 /* RegisterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

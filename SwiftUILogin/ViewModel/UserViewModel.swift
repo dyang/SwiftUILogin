@@ -8,24 +8,30 @@
 
 import Foundation
 
-class UserViewModel: ObservableObject {
+class RegisterViewModel: ObservableObject {
 	@Published var username: String = ""
 	@Published var passcode: String = ""
 	@Published var repeatPasscode: String = ""
 	
 	var isUsernameValid: Bool {
-		return username.count > 0
+		username.count > 0
 	}
 	
 	var isPasscodeValid: Bool {
-		return passcode.count == 6
+		passcode.count == 6
 	}
 	
 	var isRepeatPasscodeValid: Bool {
-		return isPasscodeValid && repeatPasscode == passcode
+		isPasscodeValid && repeatPasscode == passcode
 	}
 	
 	var allValid: Bool {
-		return isUsernameValid && isPasscodeValid && isRepeatPasscodeValid
+		isUsernameValid && isPasscodeValid && isRepeatPasscodeValid
+	}
+}
+
+class UsernameLoginViewModel: RegisterViewModel {
+	override var allValid: Bool {
+		isUsernameValid && isPasscodeValid
 	}
 }
